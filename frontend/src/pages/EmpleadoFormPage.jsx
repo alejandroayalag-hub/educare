@@ -50,7 +50,7 @@ export default function EmpleadoFormPage() {
     <div>
       <label className="block text-xs font-medium text-gray-600 mb-1">{label}{required && <span className="text-red-500 ml-1">*</span>}</label>
       <input type={type} value={form[k]} onChange={e => set(k, e.target.value)} placeholder={placeholder}
-        className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+        className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
     </div>
   );
 
@@ -79,7 +79,7 @@ export default function EmpleadoFormPage() {
             <div>
               <label className="block text-xs font-medium text-gray-600 mb-1">Puesto</label>
               <select value={form.puesto} onChange={e => set('puesto', e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
                 <option value="">— Seleccionar —</option>
                 {PUESTOS.map(p => <option key={p} value={p}>{p}</option>)}
               </select>
@@ -87,7 +87,7 @@ export default function EmpleadoFormPage() {
             <div>
               <label className="block text-xs font-medium text-gray-600 mb-1">Departamento</label>
               <select value={form.departamento} onChange={e => set('departamento', e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
                 <option value="">— Seleccionar —</option>
                 {DEPARTAMENTOS.map(d => <option key={d} value={d}>{d}</option>)}
               </select>
@@ -96,7 +96,7 @@ export default function EmpleadoFormPage() {
               <div>
                 <label className="block text-xs font-medium text-gray-600 mb-1">Estatus</label>
                 <select value={form.estatus} onChange={e => set('estatus', e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
                   <option value="activo">Activo</option>
                   <option value="inactivo">Inactivo</option>
                   <option value="baja">Baja</option>
@@ -119,7 +119,7 @@ export default function EmpleadoFormPage() {
             <div className="md:col-span-2">
               <label className="block text-xs font-medium text-gray-600 mb-1">Observaciones</label>
               <textarea value={form.observaciones} onChange={e => set('observaciones', e.target.value)} rows={3}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-none" />
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none" />
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function EmpleadoFormPage() {
           <button type="button" onClick={() => navigate(-1)}
             className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50">Cancelar</button>
           <button type="submit" disabled={loading}
-            className="px-6 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50">
+            className="px-6 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50">
             {loading ? 'Guardando...' : isEdit ? 'Actualizar' : 'Crear empleado'}
           </button>
         </div>

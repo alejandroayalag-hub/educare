@@ -45,10 +45,10 @@ export default function TabCaja() {
         <div className="flex items-center gap-2">
           <label className="text-sm text-gray-600 font-medium">Fecha:</label>
           <input type="date" value={fecha} onChange={e => setFecha(e.target.value)}
-            className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
         </div>
         <button onClick={() => setModal(true)}
-          className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700">
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">
           + Registrar pago
         </button>
         <button onClick={hacerCorte}
@@ -61,7 +61,7 @@ export default function TabCaja() {
       {resumen && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label:'Total del día', valor: resumen.total, color:'bg-indigo-50 border-indigo-100 text-indigo-800' },
+            { label:'Total del día', valor: resumen.total, color:'bg-blue-50 border-blue-100 text-blue-800' },
             { label:'Efectivo',      valor: resumen.efectivo, color:'bg-green-50 border-green-100 text-green-800' },
             { label:'Tarjeta',       valor: resumen.tarjeta,  color:'bg-blue-50 border-blue-100 text-blue-800' },
             { label:'Transferencia', valor: resumen.transferencia, color:'bg-purple-50 border-purple-100 text-purple-800' },

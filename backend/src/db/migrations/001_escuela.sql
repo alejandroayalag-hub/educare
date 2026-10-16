@@ -1,7 +1,7 @@
 -- Configuración de la escuela
 CREATE TABLE IF NOT EXISTS escuela (
   id          SERIAL PRIMARY KEY,
-  nombre      VARCHAR(150) NOT NULL DEFAULT 'GOKIDS',
+  nombre      VARCHAR(150) NOT NULL DEFAULT 'EDUCARE',
   slogan      VARCHAR(200),
   direccion   TEXT,
   telefono    VARCHAR(20),
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS escuela (
   updated_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-INSERT INTO escuela (nombre) VALUES ('GOKIDS') ON CONFLICT DO NOTHING;
+INSERT INTO escuela (nombre) VALUES ('EDUCARE') ON CONFLICT DO NOTHING;
 
 -- Ciclos escolares
 CREATE TABLE IF NOT EXISTS ciclos_escolares (

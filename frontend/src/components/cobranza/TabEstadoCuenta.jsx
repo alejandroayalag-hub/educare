@@ -52,14 +52,14 @@ export default function TabEstadoCuenta() {
       <div className="relative max-w-md">
         <label className="text-xs font-medium text-gray-600">Buscar alumno</label>
         {alumno ? (
-          <div className="mt-1 flex items-center gap-2 bg-indigo-50 border border-indigo-200 rounded-lg px-3 py-2">
-            <span className="text-sm font-medium text-indigo-800">{alumno.apellido_paterno} {alumno.nombre}</span>
-            <button onClick={() => { setAlumno(null); setCargos([]); setPagos([]); }} className="ml-auto text-xs text-indigo-500 hover:text-indigo-700">✕ Cambiar</button>
+          <div className="mt-1 flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-lg px-3 py-2">
+            <span className="text-sm font-medium text-blue-800">{alumno.apellido_paterno} {alumno.nombre}</span>
+            <button onClick={() => { setAlumno(null); setCargos([]); setPagos([]); }} className="ml-auto text-xs text-blue-500 hover:text-blue-700">✕ Cambiar</button>
           </div>
         ) : (
           <>
             <input value={busqueda} onChange={e => buscar(e.target.value)} placeholder="Nombre del alumno..."
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
             {sugerencias.length > 0 && (
               <div className="absolute z-10 top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-1 max-h-48 overflow-y-auto">
                 {sugerencias.map(a => (
@@ -89,7 +89,7 @@ export default function TabEstadoCuenta() {
             </div>
             <div className="flex items-center justify-center">
               <button onClick={() => { setCargoModal(null); setModal(true); }}
-                className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700">
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">
                 + Registrar pago
               </button>
             </div>
@@ -129,7 +129,7 @@ export default function TabEstadoCuenta() {
                       <td className="px-4 py-2">
                         {c.estatus === 'pendiente' && (
                           <button onClick={() => { setCargoModal(c); setModal(true); }}
-                            className="text-xs text-indigo-600 hover:underline">Cobrar</button>
+                            className="text-xs text-blue-600 hover:underline">Cobrar</button>
                         )}
                       </td>
                     </tr>

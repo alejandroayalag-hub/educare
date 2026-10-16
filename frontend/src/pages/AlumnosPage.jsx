@@ -47,7 +47,7 @@ export default function AlumnosPage() {
         </div>
         <button
           onClick={() => navigate('/control-escolar/alumnos/nuevo')}
-          className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700"
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700"
         >
           + Nuevo alumno
         </button>
@@ -59,10 +59,10 @@ export default function AlumnosPage() {
           type="text" value={busqueda}
           onChange={e => setBusqueda(e.target.value)}
           placeholder="Buscar por nombre o CURP..."
-          className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <select value={estatus} onChange={e => setEstatus(e.target.value)}
-          className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
           <option value="">Todos los estatus</option>
           {ESTATUSES.map(e => <option key={e} value={e} className="capitalize">{e}</option>)}
         </select>
@@ -92,7 +92,7 @@ export default function AlumnosPage() {
                     <div className="flex items-center gap-3">
                       {a.foto
                         ? <img src={`http://localhost:3003${a.foto}`} alt="" className="w-9 h-9 rounded-full object-cover border border-gray-200" />
-                        : <div className="w-9 h-9 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold text-sm">
+                        : <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-sm">
                             {a.nombre[0]}{a.apellido_paterno[0]}
                           </div>
                       }
@@ -120,7 +120,7 @@ export default function AlumnosPage() {
                   <td className="px-4 py-3 text-right">
                     <button
                       onClick={() => navigate(`/control-escolar/alumnos/${a.id}`)}
-                      className="text-indigo-600 hover:text-indigo-800 text-xs font-medium border border-indigo-200 rounded px-2 py-1 hover:bg-indigo-50"
+                      className="text-blue-600 hover:text-blue-800 text-xs font-medium border border-blue-200 rounded px-2 py-1 hover:bg-blue-50"
                     >
                       Ver expediente
                     </button>

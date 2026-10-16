@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const pool   = require('../src/db/pool');
 
 async function main() {
-  const email    = process.env.ADMIN_EMAIL    || 'admin@gokids.com';
+  const email    = process.env.ADMIN_EMAIL    || 'admin@educare.com';
   const password = process.env.ADMIN_PASSWORD || 'Admin123!';
   const hash = await bcrypt.hash(password, 10);
   await pool.query(

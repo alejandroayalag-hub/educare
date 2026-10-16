@@ -26,7 +26,7 @@ function PagoResultado({ tipo }) {
       <div className="text-5xl mb-4">{config.icon}</div>
       <h2 className={`text-2xl font-bold mb-2 ${config.color}`}>{config.title}</h2>
       <p className="text-gray-500 mb-6">{config.msg}</p>
-      <Link to="/cobranza" className="text-indigo-600 hover:underline text-sm">← Volver a Cobranza</Link>
+      <Link to="/cobranza" className="text-blue-700 hover:underline text-sm">← Volver a Cobranza</Link>
     </div>
   );
 }
@@ -51,17 +51,15 @@ function Layout() {
     <div className="min-h-screen bg-gray-50">
       <nav className="bg-white border-b border-gray-200 px-6 py-2 flex items-center gap-4 shadow-sm">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center">
-            <span className="text-white font-black text-xs">GK</span>
-          </div>
-          <span className="font-bold text-gray-800 text-sm tracking-wide">GOKIDS</span>
+          <img src="/logo.jpg" alt="Educare" className="h-8 w-auto rounded" />
+          <span className="font-bold text-gray-800 text-sm tracking-wide">COLEGIO EDUCARE</span>
         </div>
 
         <div className="ml-6 flex gap-4 flex-1">
           {navItems.filter(n => !n.roles || n.roles.includes(rol)).map(n => (
             <NavLink key={n.to} to={n.to} end={n.to === '/'}
               className={({ isActive }) =>
-                isActive ? 'text-indigo-700 font-medium text-sm' : 'text-gray-600 hover:text-indigo-700 text-sm'
+                isActive ? 'text-blue-700 font-medium text-sm' : 'text-gray-600 hover:text-blue-700 text-sm'
               }>
               {n.label}
             </NavLink>

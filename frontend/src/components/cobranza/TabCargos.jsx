@@ -90,7 +90,7 @@ export default function TabCargos() {
         <div>
           <label className="text-xs font-medium text-gray-600 mr-2">Ciclo escolar:</label>
           <select value={cicloId} onChange={e => setCicloId(e.target.value)}
-            className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+            className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
             <option value="">— Seleccionar —</option>
             {ciclos.map(c => <option key={c.id} value={c.id}>{c.nombre}{c.activo ? ' ✓' : ''}</option>)}
           </select>
@@ -98,7 +98,7 @@ export default function TabCargos() {
         <div className="flex rounded-lg border border-gray-200 overflow-hidden text-sm">
           {['masivo','individual'].map(t => (
             <button key={t} onClick={() => setTab(t)}
-              className={`px-4 py-2 capitalize ${tab===t ? 'bg-indigo-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
+              className={`px-4 py-2 capitalize ${tab===t ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
               {t === 'masivo' ? 'Cargo masivo' : 'Cargo individual'}
             </button>
           ))}
@@ -116,7 +116,7 @@ export default function TabCargos() {
             <div>
               <label className="text-xs font-medium text-gray-600">Concepto *</label>
               <select value={fMasivo.concepto_id} onChange={e => setM('concepto_id', e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
                 <option value="">— Seleccionar —</option>
                 {conceptos.map(c => <option key={c.id} value={c.id}>{c.nombre} — {fmt(c.monto)}</option>)}
               </select>
@@ -124,24 +124,24 @@ export default function TabCargos() {
             <div>
               <label className="text-xs font-medium text-gray-600">Mes</label>
               <select value={fMasivo.mes} onChange={e => setM('mes', e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
                 {MESES.map((m,i) => <option key={i+1} value={i+1}>{m}</option>)}
               </select>
             </div>
             <div>
               <label className="text-xs font-medium text-gray-600">Año</label>
               <input type="number" value={fMasivo.anio} onChange={e => setM('anio', e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
             </div>
             <div>
               <label className="text-xs font-medium text-gray-600">Fecha vencimiento</label>
               <input type="date" value={fMasivo.fecha_vencimiento} onChange={e => setM('fecha_vencimiento', e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
             </div>
           </div>
           <div className="mt-4 flex justify-end">
             <button onClick={generarMasivo} disabled={saving || !cicloId}
-              className="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-50">
+              className="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 disabled:opacity-50">
               {saving ? 'Generando...' : 'Generar cargos'}
             </button>
           </div>
@@ -156,14 +156,14 @@ export default function TabCargos() {
             <div className="relative">
               <label className="text-xs font-medium text-gray-600">Alumno *</label>
               {alumnoSelec ? (
-                <div className="mt-1 flex items-center gap-2 bg-indigo-50 border border-indigo-200 rounded-lg px-3 py-2">
-                  <span className="text-sm font-medium text-indigo-800">{alumnoSelec.apellido_paterno} {alumnoSelec.nombre}</span>
-                  <button onClick={() => setAlumnoSelec(null)} className="ml-auto text-xs text-indigo-500">✕</button>
+                <div className="mt-1 flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-lg px-3 py-2">
+                  <span className="text-sm font-medium text-blue-800">{alumnoSelec.apellido_paterno} {alumnoSelec.nombre}</span>
+                  <button onClick={() => setAlumnoSelec(null)} className="ml-auto text-xs text-blue-500">✕</button>
                 </div>
               ) : (
                 <>
                   <input value={busqueda} onChange={e => buscarAlumnos(e.target.value)} placeholder="Buscar alumno..."
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
                   {alumnos.length > 0 && (
                     <div className="absolute z-10 top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-1 max-h-40 overflow-y-auto">
                       {alumnos.map(a => (
@@ -180,7 +180,7 @@ export default function TabCargos() {
               <div>
                 <label className="text-xs font-medium text-gray-600">Concepto *</label>
                 <select value={fIndiv.concepto_id} onChange={e => { setI('concepto_id', e.target.value); const cp = conceptos.find(c => String(c.id) === e.target.value); if (cp) setI('monto', cp.monto); }}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
                   <option value="">— Seleccionar —</option>
                   {conceptos.map(c => <option key={c.id} value={c.id}>{c.nombre}</option>)}
                 </select>
@@ -188,24 +188,24 @@ export default function TabCargos() {
               <div>
                 <label className="text-xs font-medium text-gray-600">Monto *</label>
                 <input type="number" value={fIndiv.monto} onChange={e => setI('monto', e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
               </div>
               <div>
                 <label className="text-xs font-medium text-gray-600">Mes / Año</label>
                 <div className="flex gap-1 mt-1">
                   <select value={fIndiv.mes} onChange={e => setI('mes', e.target.value)}
-                    className="flex-1 border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    className="flex-1 border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
                     <option value="">—</option>
                     {MESES.map((m,i) => <option key={i+1} value={i+1}>{m.slice(0,3)}</option>)}
                   </select>
                   <input type="number" value={fIndiv.anio} onChange={e => setI('anio', e.target.value)}
-                    className="w-20 border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                    className="w-20 border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
                 </div>
               </div>
             </div>
             <div className="flex justify-end">
               <button onClick={guardarIndiv} disabled={saving}
-                className="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-50">
+                className="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 disabled:opacity-50">
                 {saving ? 'Guardando...' : 'Crear cargo'}
               </button>
             </div>

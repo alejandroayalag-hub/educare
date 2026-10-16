@@ -17,7 +17,7 @@ async function enviarEmail(destinatario, asunto, html) {
   const t = getTransporter();
   if (!t) throw new Error('SMTP no configurado');
   await t.sendMail({
-    from: `"${process.env.SMTP_FROM_NAME || 'GOKIDS'}" <${process.env.SMTP_USER}>`,
+    from: `"${process.env.SMTP_FROM_NAME || 'EDUCARE'}" <${process.env.SMTP_USER}>`,
     to: destinatario,
     subject: asunto,
     html,
@@ -72,7 +72,7 @@ router.post('/enviar', roles('directora','secretaria'), async (req, res, next) =
       const dest = destinatario || tutor_email;
       let estatus = 'enviado', error_msg = null;
       try {
-        await enviarEmail(dest, asunto || 'Aviso escolar GOKIDS', `<p>${mensaje.replace(/\n/g, '<br>')}</p>`);
+        await enviarEmail(dest, asunto || 'Aviso escolar EDUCARE', `<p>${mensaje.replace(/\n/g, '<br>')}</p>`);
       } catch (e) {
         estatus = 'fallido'; error_msg = e.message;
       }
@@ -129,7 +129,7 @@ router.post('/masivo', roles('directora','secretaria'), async (req, res, next) =
 
       if (row.email) {
         let estatus = 'enviado', error_msg = null;
-        try { await enviarEmail(row.email, asunto || 'Recordatorio de pago — GOKIDS', `<p>${msg.replace(/\n/g,'<br>')}</p>`); enviados++; }
+        try { await enviarEmail(row.email, asunto || 'Recordatorio de pago — EDUCARE', `<p>${msg.replace(/\n/g,'<br>')}</p>`); enviados++; }
         catch (e) { estatus = 'fallido'; error_msg = e.message; fallidos++; }
         await pool.query(
           `INSERT INTO notificaciones (alumno_id, tutor_id, tipo, canal, destinatario, asunto, mensaje, estatus, error_msg, usuario_id)

@@ -94,7 +94,7 @@ export default function ModalPago({ onClose, onSuccess, alumnoPreseleccionado = 
           <h3 className="font-semibold text-gray-800 mb-2">Link de pago generado</h3>
           <p className="text-sm text-gray-500 mb-4">Comparte el siguiente enlace con el padre de familia para que realice el pago con tarjeta:</p>
           <a href={mpLink} target="_blank" rel="noreferrer"
-            className="block bg-indigo-600 text-white px-4 py-3 rounded-lg text-sm font-medium hover:bg-indigo-700 mb-3">
+            className="block bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-medium hover:bg-blue-700 mb-3">
             Abrir enlace de pago →
           </a>
           <p className="text-xs text-gray-400 break-all mb-4">{mpLink}</p>
@@ -114,15 +114,15 @@ export default function ModalPago({ onClose, onSuccess, alumnoPreseleccionado = 
         <div className="mb-4 relative">
           <label className="text-xs font-medium text-gray-600">Alumno *</label>
           {alumnoSelec ? (
-            <div className="mt-1 flex items-center gap-2 bg-indigo-50 border border-indigo-200 rounded-lg px-3 py-2">
-              <span className="text-sm font-medium text-indigo-800">{alumnoSelec.apellido_paterno} {alumnoSelec.nombre}</span>
-              <button onClick={() => { setAlumnoSelec(null); setCargos([]); }} className="ml-auto text-xs text-indigo-500 hover:text-indigo-700">✕</button>
+            <div className="mt-1 flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-lg px-3 py-2">
+              <span className="text-sm font-medium text-blue-800">{alumnoSelec.apellido_paterno} {alumnoSelec.nombre}</span>
+              <button onClick={() => { setAlumnoSelec(null); setCargos([]); }} className="ml-auto text-xs text-blue-500 hover:text-blue-700">✕</button>
             </div>
           ) : (
             <>
               <input value={busqueda} onChange={e => buscarAlumnos(e.target.value)}
                 placeholder="Buscar por nombre..."
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
               {alumnos.length > 0 && (
                 <div className="absolute z-10 top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-1 max-h-48 overflow-y-auto">
                   {alumnos.map(a => (
@@ -143,7 +143,7 @@ export default function ModalPago({ onClose, onSuccess, alumnoPreseleccionado = 
           <div className="mb-4">
             <label className="text-xs font-medium text-gray-600">Cargo pendiente (opcional)</label>
             <select value={form.cargo_id} onChange={e => seleccionarCargo(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
               <option value="">— Pago sin cargo asignado —</option>
               {cargos.map(c => (
                 <option key={c.id} value={c.id}>
@@ -159,7 +159,7 @@ export default function ModalPago({ onClose, onSuccess, alumnoPreseleccionado = 
           <div className="mb-4">
             <label className="text-xs font-medium text-gray-600">Concepto de pago</label>
             <select value={form.concepto_id} onChange={e => seleccionarConcepto(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
               <option value="">— Seleccionar concepto —</option>
               {conceptos.map(c => <option key={c.id} value={c.id}>{c.nombre} — {fmt(c.monto)}</option>)}
             </select>
@@ -172,12 +172,12 @@ export default function ModalPago({ onClose, onSuccess, alumnoPreseleccionado = 
             <label className="text-xs font-medium text-gray-600">Monto *</label>
             <input type="number" min="0" step="0.01" value={form.monto} onChange={e => set('monto', e.target.value)}
               placeholder="0.00"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
           </div>
           <div>
             <label className="text-xs font-medium text-gray-600">Método de pago</label>
             <select value={form.metodo} onChange={e => set('metodo', e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
               <option value="efectivo">Efectivo</option>
               <option value="tarjeta">Tarjeta (MercadoPago)</option>
               <option value="transferencia">Transferencia</option>
@@ -190,7 +190,7 @@ export default function ModalPago({ onClose, onSuccess, alumnoPreseleccionado = 
             <label className="text-xs font-medium text-gray-600">Referencia / Folio</label>
             <input value={form.referencia} onChange={e => set('referencia', e.target.value)}
               placeholder="Número de referencia bancaria"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
           </div>
         )}
 
@@ -204,13 +204,13 @@ export default function ModalPago({ onClose, onSuccess, alumnoPreseleccionado = 
           <label className="text-xs font-medium text-gray-600">Notas</label>
           <input value={form.notas} onChange={e => set('notas', e.target.value)}
             placeholder="Observaciones del pago..."
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
         </div>
 
         <div className="flex gap-3 justify-end">
           <button onClick={onClose} className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50">Cancelar</button>
           <button onClick={guardar} disabled={saving || !alumnoSelec}
-            className="px-5 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50">
+            className="px-5 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50">
             {saving ? 'Procesando...' : form.metodo === 'tarjeta' ? 'Generar link de pago' : 'Registrar pago'}
           </button>
         </div>

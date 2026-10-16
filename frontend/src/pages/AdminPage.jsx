@@ -21,7 +21,7 @@ export default function AdminPage() {
         {[['escuela','Datos de la escuela'],['usuarios','Usuarios'],['ciclos','Ciclos escolares']].map(([k,l]) => (
           <button key={k} onClick={() => setTab(k)}
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
-              tab === k ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'
+              tab === k ? 'border-blue-600 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700'
             }`}>
             {l}
           </button>
@@ -67,7 +67,7 @@ function TabEscuela() {
             <img src={`/uploads/escuela/logo${form.logo_ruta?.split('logo')[1] || ''}`}
               alt="Logo" className="w-16 h-16 rounded-xl object-contain border" />
           ) : (
-            <div className="w-16 h-16 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 font-black text-xl border-2 border-dashed border-indigo-300">
+            <div className="w-16 h-16 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 font-black text-xl border-2 border-dashed border-blue-300">
               GK
             </div>
           )}
@@ -93,13 +93,13 @@ function TabEscuela() {
           <label className="block text-sm font-medium text-gray-700 mb-1">{f.label}</label>
           <input type={f.type || 'text'} name={f.name} value={form[f.name] || ''}
             onChange={handleChange} required={f.required} placeholder={f.placeholder}
-            className="border rounded-lg px-3 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            className="border rounded-lg px-3 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
         </div>
       ))}
 
       <div className="flex items-center gap-3 pt-2">
         <button type="submit" disabled={saving}
-          className="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-50">
+          className="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 disabled:opacity-50">
           {saving ? 'Guardando...' : 'Guardar'}
         </button>
         {exito && <span className="text-green-600 text-sm">{exito}</span>}
@@ -177,7 +177,7 @@ function TabUsuarios() {
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <div className="flex gap-2 pt-1">
             <button type="submit"
-              className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700">
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700">
               {editando ? 'Actualizar' : 'Crear usuario'}
             </button>
             {editando && (
@@ -218,7 +218,7 @@ function TabUsuarios() {
                   </span>
                 </td>
                 <td className="px-4 py-3 text-right flex gap-3 justify-end">
-                  <button onClick={() => handleEditar(u)} className="text-indigo-600 text-xs hover:underline">Editar</button>
+                  <button onClick={() => handleEditar(u)} className="text-blue-600 text-xs hover:underline">Editar</button>
                   <button onClick={() => handleEliminar(u.id)} className="text-red-500 text-xs hover:underline">Eliminar</button>
                 </td>
               </tr>
@@ -272,7 +272,7 @@ function TabCiclos() {
           </div>
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <button type="submit"
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700">
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700">
             Crear ciclo
           </button>
         </form>
@@ -296,7 +296,7 @@ function TabCiclos() {
                     <span className="px-2 py-0.5 rounded-full text-xs bg-green-100 text-green-700 font-medium">Activo</span>
                   ) : (
                     <button onClick={() => activarCiclo(c.id).then(cargar)}
-                      className="text-xs text-indigo-600 hover:underline">
+                      className="text-xs text-blue-600 hover:underline">
                       Activar
                     </button>
                   )}

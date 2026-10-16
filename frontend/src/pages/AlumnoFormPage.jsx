@@ -72,7 +72,7 @@ export default function AlumnoFormPage() {
   const input = (k, type='text', placeholder='') => (
     <input type={type} value={form[k]} onChange={e => set(k, e.target.value)}
       placeholder={placeholder}
-      className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+      className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
   );
 
   return (
@@ -106,7 +106,7 @@ export default function AlumnoFormPage() {
             </Campo>
             <Campo label="Sexo">
               <select value={form.sexo} onChange={e => set('sexo', e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
                 <option value="">— Seleccionar —</option>
                 {SEXOS.map(s => <option key={s} value={s} className="capitalize">{s}</option>)}
               </select>
@@ -115,7 +115,7 @@ export default function AlumnoFormPage() {
               <Campo label="Dirección">
                 <textarea value={form.direccion} onChange={e => set('direccion', e.target.value)}
                   rows={2} placeholder="Calle, número, colonia, ciudad..."
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-none" />
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none" />
               </Campo>
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function AlumnoFormPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Campo label="Tipo de sangre">
               <select value={form.tipo_sangre} onChange={e => set('tipo_sangre', e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
                 <option value="">— Seleccionar —</option>
                 {TIPOS_SANGRE.map(t => <option key={t} value={t}>{t}</option>)}
               </select>
@@ -135,7 +135,7 @@ export default function AlumnoFormPage() {
             {isEdit && (
               <Campo label="Estatus">
                 <select value={form.estatus} onChange={e => set('estatus', e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
                   {['activo','inactivo','egresado','baja'].map(s => <option key={s} value={s} className="capitalize">{s}</option>)}
                 </select>
               </Campo>
@@ -144,14 +144,14 @@ export default function AlumnoFormPage() {
               <Campo label="Alergias">
                 <textarea value={form.alergias} onChange={e => set('alergias', e.target.value)}
                   rows={2} placeholder="Describe las alergias conocidas..."
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-none" />
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none" />
               </Campo>
             </div>
             <div className="md:col-span-2">
               <Campo label="Condiciones médicas">
                 <textarea value={form.condiciones_medicas} onChange={e => set('condiciones_medicas', e.target.value)}
                   rows={2} placeholder="Condiciones relevantes para la escuela..."
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-none" />
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none" />
               </Campo>
             </div>
           </div>
@@ -162,7 +162,7 @@ export default function AlumnoFormPage() {
           <h2 className="text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wider">Observaciones</h2>
           <textarea value={form.observaciones} onChange={e => set('observaciones', e.target.value)}
             rows={3} placeholder="Notas generales del alumno..."
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-none" />
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none" />
         </div>
 
         <div className="flex gap-3 justify-end">
@@ -171,7 +171,7 @@ export default function AlumnoFormPage() {
             Cancelar
           </button>
           <button type="submit" disabled={loading}
-            className="px-6 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50">
+            className="px-6 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50">
             {loading ? 'Guardando...' : isEdit ? 'Actualizar alumno' : 'Crear alumno'}
           </button>
         </div>

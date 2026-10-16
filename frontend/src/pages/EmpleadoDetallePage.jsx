@@ -13,7 +13,7 @@ function TabBtn({ label, active, onClick }) {
   return (
     <button onClick={onClick}
       className={`px-4 py-2 text-sm font-medium border-b-2 transition ${
-        active ? 'border-indigo-600 text-indigo-700' : 'border-transparent text-gray-500 hover:text-gray-700'
+        active ? 'border-blue-600 text-blue-700' : 'border-transparent text-gray-500 hover:text-gray-700'
       }`}>
       {label}
     </button>
@@ -148,7 +148,7 @@ function TabDocumentos({ empleadoId }) {
               <div className="flex items-center gap-2">
                 {doc && (
                   <button onClick={() => descargarDocEmpleado(doc.id, doc.filename)}
-                    className="text-xs text-indigo-600 hover:underline truncate max-w-40">{doc.filename}</button>
+                    className="text-xs text-blue-600 hover:underline truncate max-w-40">{doc.filename}</button>
                 )}
                 <label className="cursor-pointer text-xs text-gray-500 border border-gray-200 rounded px-2 py-1 hover:bg-gray-50">
                   {doc ? 'Reemplazar' : 'Subir'}
@@ -189,14 +189,14 @@ function TabChecadas({ empleadoId }) {
         <div>
           <label className="text-xs text-gray-500">Desde</label>
           <input type="date" value={desde} onChange={e => setDesde(e.target.value)}
-            className="block border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            className="block border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
         </div>
         <div>
           <label className="text-xs text-gray-500">Hasta</label>
           <input type="date" value={hasta} onChange={e => setHasta(e.target.value)}
-            className="block border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            className="block border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
         </div>
-        <button onClick={cargar} className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700">Filtrar</button>
+        <button onClick={cargar} className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Filtrar</button>
       </div>
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
         {loading ? <div className="p-6 text-center text-gray-400 text-sm">Cargando...</div> :

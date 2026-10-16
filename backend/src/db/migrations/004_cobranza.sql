@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS conceptos_pago (
   descripcion TEXT,
   monto       NUMERIC(10,2) NOT NULL DEFAULT 0,
   tipo        VARCHAR(20) NOT NULL DEFAULT 'mensualidad'
-              CHECK (tipo IN ('inscripcion','mensualidad','guarderia','uniforme','otro')),
+              CHECK (tipo IN ('inscripcion','mensualidad','uniforme','otro')),
   activo      BOOLEAN NOT NULL DEFAULT true,
   created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
@@ -15,7 +15,6 @@ INSERT INTO conceptos_pago (nombre, tipo, monto) VALUES
   ('Mensualidad Maternal',     'mensualidad',  1800.00),
   ('Mensualidad Kinder',       'mensualidad',  2000.00),
   ('Mensualidad Primaria',     'mensualidad',  2200.00),
-  ('Guardería tarde',          'guarderia',     800.00),
   ('Uniforme',                 'uniforme',      600.00)
 ON CONFLICT DO NOTHING;
 

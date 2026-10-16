@@ -15,7 +15,7 @@ function TabBtn({ label, active, onClick }) {
   return (
     <button onClick={onClick}
       className={`px-4 py-2 text-sm font-medium border-b-2 transition ${
-        active ? 'border-indigo-600 text-indigo-700' : 'border-transparent text-gray-500 hover:text-gray-700'
+        active ? 'border-blue-600 text-blue-700' : 'border-transparent text-gray-500 hover:text-gray-700'
       }`}>
       {label}
     </button>
@@ -71,8 +71,8 @@ export default function AlumnoDetallePage() {
         <div className="flex items-start gap-5">
           <div className="relative group cursor-pointer" onClick={() => fotoRef.current?.click()}>
             {alumno.foto
-              ? <img src={`http://localhost:3003${alumno.foto}`} alt="" className="w-20 h-20 rounded-full object-cover border-2 border-indigo-100" />
-              : <div className="w-20 h-20 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold text-2xl border-2 border-indigo-200">
+              ? <img src={`http://localhost:3003${alumno.foto}`} alt="" className="w-20 h-20 rounded-full object-cover border-2 border-blue-100" />
+              : <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-2xl border-2 border-blue-200">
                   {alumno.nombre[0]}{alumno.apellido_paterno[0]}
                 </div>
             }
@@ -89,7 +89,7 @@ export default function AlumnoDetallePage() {
               {alumno.sexo && <span className="capitalize">{alumno.sexo}</span>}
             </div>
             {alumno.inscripcion_actual && (
-              <p className="mt-2 text-sm text-indigo-700 font-medium">
+              <p className="mt-2 text-sm text-blue-700 font-medium">
                 {alumno.inscripcion_actual.grado_nombre} — Grupo {alumno.inscripcion_actual.grupo_nombre}
               </p>
             )}
@@ -196,7 +196,7 @@ function TabTutores({ alumnoId }) {
     <div>
       <div className="flex justify-between items-center mb-4">
         <h2 className="font-semibold text-gray-700">Tutores / Padres de familia</h2>
-        <button onClick={() => abrir()} className="text-sm bg-indigo-600 text-white px-3 py-1.5 rounded-lg hover:bg-indigo-700">+ Agregar</button>
+        <button onClick={() => abrir()} className="text-sm bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700">+ Agregar</button>
       </div>
       <div className="space-y-3">
         {tutores.length === 0 && <p className="text-sm text-gray-400 text-center py-8">No hay tutores registrados</p>}
@@ -206,7 +206,7 @@ function TabTutores({ alumnoId }) {
               <div className="flex items-center gap-2">
                 <p className="font-medium text-gray-800">{t.nombre}</p>
                 <span className="text-xs text-gray-500 capitalize">{t.parentesco}</span>
-                {t.es_responsable && <span className="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full">Responsable</span>}
+                {t.es_responsable && <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Responsable</span>}
               </div>
               <div className="text-xs text-gray-500 mt-1 space-y-0.5">
                 {t.telefono       && <p>Tel. {t.telefono}</p>}
@@ -231,38 +231,38 @@ function TabTutores({ alumnoId }) {
               <div>
                 <label className="text-xs font-medium text-gray-600">Nombre completo *</label>
                 <input value={form.nombre} onChange={e => set('nombre', e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="text-xs font-medium text-gray-600">Parentesco</label>
                   <select value={form.parentesco} onChange={e => set('parentesco', e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
                     {PARENTESCOS.map(p => <option key={p} value={p} className="capitalize">{p}</option>)}
                   </select>
                 </div>
                 <div>
                   <label className="text-xs font-medium text-gray-600">Teléfono</label>
                   <input value={form.telefono} onChange={e => set('telefono', e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="text-xs font-medium text-gray-600">Tel. trabajo</label>
                   <input value={form.telefono_trabajo} onChange={e => set('telefono_trabajo', e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
                 </div>
                 <div>
                   <label className="text-xs font-medium text-gray-600">Email</label>
                   <input type="email" value={form.email} onChange={e => set('email', e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
                 </div>
               </div>
               <div>
                 <label className="text-xs font-medium text-gray-600">Ocupación</label>
                 <input value={form.ocupacion} onChange={e => set('ocupacion', e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
               </div>
               <label className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
                 <input type="checkbox" checked={form.es_responsable} onChange={e => set('es_responsable', e.target.checked)} className="rounded" />
@@ -271,7 +271,7 @@ function TabTutores({ alumnoId }) {
             </div>
             <div className="flex gap-3 mt-5 justify-end">
               <button onClick={() => setModal(false)} className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50">Cancelar</button>
-              <button onClick={guardar} disabled={saving} className="px-4 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50">
+              <button onClick={guardar} disabled={saving} className="px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50">
                 {saving ? 'Guardando...' : 'Guardar'}
               </button>
             </div>
@@ -332,23 +332,23 @@ function TabInscripcion({ alumnoId, onReload }) {
         ))}
       </div>
 
-      <div className="bg-indigo-50 rounded-xl border border-indigo-200 p-5">
-        <h3 className="font-semibold text-indigo-800 mb-3 text-sm">Nueva inscripción</h3>
+      <div className="bg-blue-50 rounded-xl border border-blue-200 p-5">
+        <h3 className="font-semibold text-blue-800 mb-3 text-sm">Nueva inscripción</h3>
         {error && <p className="text-red-600 text-sm mb-3">{error}</p>}
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="text-xs font-medium text-indigo-700">Ciclo escolar</label>
+            <label className="text-xs font-medium text-blue-700">Ciclo escolar</label>
             <select value={form.ciclo_id} onChange={e => setForm(f => ({ ...f, ciclo_id: e.target.value, grupo_id:'' }))}
-              className="w-full border border-indigo-200 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400 bg-white">
+              className="w-full border border-blue-200 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white">
               <option value="">— Seleccionar —</option>
               {ciclos.map(c => <option key={c.id} value={c.id}>{c.nombre}{c.activo ? ' ✓' : ''}</option>)}
             </select>
           </div>
           <div>
-            <label className="text-xs font-medium text-indigo-700">Grupo</label>
+            <label className="text-xs font-medium text-blue-700">Grupo</label>
             <select value={form.grupo_id} onChange={e => setForm(f => ({ ...f, grupo_id: e.target.value }))}
               disabled={!form.ciclo_id}
-              className="w-full border border-indigo-200 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400 bg-white disabled:opacity-50">
+              className="w-full border border-blue-200 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white disabled:opacity-50">
               <option value="">— Seleccionar —</option>
               {grupos.map(g => <option key={g.id} value={g.id}>{g.grado_nombre} — {g.nombre} ({g.inscritos}/{g.capacidad})</option>)}
             </select>
@@ -356,7 +356,7 @@ function TabInscripcion({ alumnoId, onReload }) {
         </div>
         <div className="mt-3 flex justify-end">
           <button onClick={inscribir} disabled={saving}
-            className="text-sm font-medium bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 disabled:opacity-50">
+            className="text-sm font-medium bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50">
             {saving ? 'Inscribiendo...' : 'Inscribir al alumno'}
           </button>
         </div>
@@ -407,7 +407,7 @@ function TabDocumentos({ alumnoId }) {
                 <p className="text-sm font-medium text-gray-800">{tipo.nombre}</p>
                 {doc ? (
                   <a href={`http://localhost:3003${doc.ruta}`} target="_blank" rel="noreferrer"
-                    className="text-xs text-indigo-600 hover:underline truncate block">
+                    className="text-xs text-blue-600 hover:underline truncate block">
                     {doc.filename}
                   </a>
                 ) : (

@@ -31,7 +31,7 @@ export default function EmpleadosPage() {
           <p className="text-sm text-gray-500 mt-1">{empleados.length} registros</p>
         </div>
         <button onClick={() => navigate('/rh/empleados/nuevo')}
-          className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700">
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">
           + Nuevo empleado
         </button>
       </div>
@@ -39,9 +39,9 @@ export default function EmpleadosPage() {
       <div className="flex gap-3 mb-4">
         <input type="text" value={busqueda} onChange={e => setBusqueda(e.target.value)}
           placeholder="Buscar por nombre o CURP..."
-          className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+          className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
         <select value={estatus} onChange={e => setEstatus(e.target.value)}
-          className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
           <option value="">Todos</option>
           <option value="activo">Activo</option>
           <option value="inactivo">Inactivo</option>
@@ -93,7 +93,7 @@ export default function EmpleadosPage() {
                   </td>
                   <td className="px-4 py-3 text-right">
                     <button onClick={() => navigate(`/rh/empleados/${e.id}`)}
-                      className="text-indigo-600 hover:text-indigo-800 text-xs font-medium border border-indigo-200 rounded px-2 py-1 hover:bg-indigo-50">
+                      className="text-blue-600 hover:text-blue-800 text-xs font-medium border border-blue-200 rounded px-2 py-1 hover:bg-blue-50">
                       Ver expediente
                     </button>
                   </td>

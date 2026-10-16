@@ -78,7 +78,7 @@ export default function GruposPage() {
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold text-gray-800">Grupos</h1>
         <button onClick={() => abrir()} disabled={!cicloId}
-          className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-40">
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 disabled:opacity-40">
           + Nuevo grupo
         </button>
       </div>
@@ -86,7 +86,7 @@ export default function GruposPage() {
       <div className="mb-6">
         <label className="text-xs font-medium text-gray-600 mr-2">Ciclo escolar:</label>
         <select value={cicloId} onChange={e => setCicloId(e.target.value)}
-          className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
           <option value="">— Seleccionar —</option>
           {ciclos.map(c => <option key={c.id} value={c.id}>{c.nombre}{c.activo ? ' ✓ activo' : ''}</option>)}
         </select>
@@ -98,7 +98,7 @@ export default function GruposPage() {
         <div className="text-center py-16 text-gray-400">
           <p className="text-4xl mb-3">📚</p>
           <p className="text-sm">No hay grupos en este ciclo</p>
-          <button onClick={() => abrir()} className="mt-3 text-sm text-indigo-600 hover:underline">Crear el primer grupo</button>
+          <button onClick={() => abrir()} className="mt-3 text-sm text-blue-600 hover:underline">Crear el primer grupo</button>
         </div>
       )}
 
@@ -114,7 +114,7 @@ export default function GruposPage() {
                     <p className="text-sm text-gray-500">{g.grado_nombre}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-2xl font-bold text-indigo-600">{g.inscritos}</p>
+                    <p className="text-2xl font-bold text-blue-600">{g.inscritos}</p>
                     <p className="text-xs text-gray-400">de {g.capacidad}</p>
                   </div>
                 </div>
@@ -122,7 +122,7 @@ export default function GruposPage() {
                   <p className="text-xs text-gray-500 mt-2">Maestra/o: {g.maestro_nombre}</p>
                 )}
                 <div className="mt-3 h-1.5 rounded-full bg-gray-100">
-                  <div className="h-1.5 rounded-full bg-indigo-400 transition-all"
+                  <div className="h-1.5 rounded-full bg-blue-400 transition-all"
                     style={{ width: `${Math.min(100, (g.inscritos / g.capacidad) * 100)}%` }} />
                 </div>
                 <div className="flex gap-2 mt-3 justify-end">
@@ -146,18 +146,18 @@ export default function GruposPage() {
                   <label className="text-xs font-medium text-gray-600">Nombre del grupo *</label>
                   <input value={form.nombre} onChange={e => set('nombre', e.target.value)}
                     placeholder="Ej. A, B, Único"
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
                 </div>
                 <div>
                   <label className="text-xs font-medium text-gray-600">Capacidad</label>
                   <input type="number" min="1" value={form.capacidad} onChange={e => set('capacidad', e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
                 </div>
               </div>
               <div>
                 <label className="text-xs font-medium text-gray-600">Grado *</label>
                 <select value={form.grado_id} onChange={e => set('grado_id', e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
                   <option value="">— Seleccionar —</option>
                   {grados.map(g => <option key={g.id} value={g.id}>{g.nombre}</option>)}
                 </select>
@@ -165,7 +165,7 @@ export default function GruposPage() {
               <div>
                 <label className="text-xs font-medium text-gray-600">Maestro/a asignado/a</label>
                 <select value={form.maestro_id} onChange={e => set('maestro_id', e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
                   <option value="">— Sin asignar —</option>
                   {maestros.map(m => <option key={m.id} value={m.id}>{m.nombre}</option>)}
                 </select>
@@ -173,7 +173,7 @@ export default function GruposPage() {
             </div>
             <div className="flex gap-3 mt-5 justify-end">
               <button onClick={() => setModal(false)} className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50">Cancelar</button>
-              <button onClick={guardar} disabled={saving} className="px-4 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50">
+              <button onClick={guardar} disabled={saving} className="px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50">
                 {saving ? 'Guardando...' : 'Guardar'}
               </button>
             </div>

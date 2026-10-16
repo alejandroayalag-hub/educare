@@ -74,7 +74,7 @@ function ModalEgreso({ egreso, onClose, onSave }) {
           </div>
           <div className="flex gap-2 pt-2">
             <button type="button" onClick={onClose} className="flex-1 border rounded-lg py-2 text-sm text-gray-600 hover:bg-gray-50">Cancelar</button>
-            <button type="submit" disabled={saving} className="flex-1 bg-indigo-600 text-white rounded-lg py-2 text-sm hover:bg-indigo-700 disabled:opacity-50">
+            <button type="submit" disabled={saving} className="flex-1 bg-blue-600 text-white rounded-lg py-2 text-sm hover:bg-blue-700 disabled:opacity-50">
               {saving ? 'Guardando…' : 'Guardar'}
             </button>
           </div>
@@ -250,7 +250,7 @@ function TabEgresos({ mes, anio }) {
         <div className="flex-1" />
         <span className="text-sm font-semibold text-red-700">Total: {fmt(total)}</span>
         <button onClick={() => setModal('nuevo')}
-          className="bg-indigo-600 text-white text-sm px-4 py-1.5 rounded-lg hover:bg-indigo-700">
+          className="bg-blue-600 text-white text-sm px-4 py-1.5 rounded-lg hover:bg-blue-700">
           + Nuevo egreso
         </button>
       </div>
@@ -285,7 +285,7 @@ function TabEgresos({ mes, anio }) {
                       <td className="py-2.5 text-gray-400 text-xs">{e.referencia ?? '—'}</td>
                       <td className="py-2.5 text-right font-semibold text-red-700">{fmt(e.monto)}</td>
                       <td className="py-2.5 text-right">
-                        <button onClick={() => setModal(e)} className="text-xs text-indigo-600 hover:underline mr-2">Editar</button>
+                        <button onClick={() => setModal(e)} className="text-xs text-blue-600 hover:underline mr-2">Editar</button>
                         <button onClick={() => setDelId(e.id)} className="text-xs text-red-500 hover:underline">Eliminar</button>
                       </td>
                     </tr>
@@ -353,7 +353,7 @@ export default function FinanzasPage() {
         {[['resumen','Resumen'],['egresos','Egresos']].map(([key,label]) => (
           <button key={key} onClick={() => setTab(key)}
             className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
-              tab === key ? 'border-indigo-600 text-indigo-700' : 'border-transparent text-gray-500 hover:text-gray-700'
+              tab === key ? 'border-blue-600 text-blue-700' : 'border-transparent text-gray-500 hover:text-gray-700'
             }`}>
             {label}
           </button>

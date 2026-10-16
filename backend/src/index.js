@@ -17,7 +17,7 @@ app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 // Rutas públicas
 app.use('/api/auth',   require('./routes/auth'));
-app.get('/api/health', (req, res) => res.json({ ok: true, sistema: 'GOKIDS' }));
+app.get('/api/health', (req, res) => res.json({ ok: true, sistema: 'EDUCARE' }));
 app.get('/api/escuela/publica', require('./routes/escuela'));
 
 // Rutas protegidas
@@ -49,5 +49,5 @@ app.use('/api/nomina',                auth, require('./routes/nomina'));
 app.use(errorHandler);
 
 runMigrations()
-  .then(() => app.listen(PORT, () => console.log(`GOKIDS backend corriendo en puerto ${PORT}`)))
+  .then(() => app.listen(PORT, () => console.log(`EDUCARE backend corriendo en puerto ${PORT}`)))
   .catch(err => { console.error('Error en migraciones:', err); process.exit(1); });

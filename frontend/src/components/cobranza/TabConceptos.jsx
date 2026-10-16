@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getConceptos, crearConcepto, updateConcepto, eliminarConcepto } from '../../api/cobranza';
 
-const TIPOS = ['mensualidad','inscripcion','guarderia','uniforme','otro'];
+const TIPOS = ['mensualidad','inscripcion','uniforme','otro'];
 const fmt   = (n) => new Intl.NumberFormat('es-MX', { style:'currency', currency:'MXN' }).format(n || 0);
 
 export default function TabConceptos() {
@@ -43,13 +43,13 @@ export default function TabConceptos() {
   };
 
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
-  const tipoBadge = (t) => ({ mensualidad:'bg-indigo-100 text-indigo-800', inscripcion:'bg-purple-100 text-purple-800', guarderia:'bg-blue-100 text-blue-800', uniforme:'bg-amber-100 text-amber-800', otro:'bg-gray-100 text-gray-600' }[t]||'');
+  const tipoBadge = (t) => ({ mensualidad:'bg-blue-100 text-blue-800', inscripcion:'bg-purple-100 text-purple-800', uniforme:'bg-amber-100 text-amber-800', otro:'bg-gray-100 text-gray-600' }[t]||'');
 
   return (
     <div>
       <div className="flex justify-between items-center mb-5">
         <h2 className="font-semibold text-gray-700">Conceptos de pago</h2>
-        <button onClick={() => abrir()} className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700">
+        <button onClick={() => abrir()} className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">
           + Nuevo concepto
         </button>
       </div>
@@ -102,26 +102,26 @@ export default function TabConceptos() {
               <div>
                 <label className="text-xs font-medium text-gray-600">Nombre *</label>
                 <input value={form.nombre} onChange={e => set('nombre', e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="text-xs font-medium text-gray-600">Tipo</label>
                   <select value={form.tipo} onChange={e => set('tipo', e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
                     {TIPOS.map(t => <option key={t} value={t} className="capitalize">{t}</option>)}
                   </select>
                 </div>
                 <div>
                   <label className="text-xs font-medium text-gray-600">Monto *</label>
                   <input type="number" min="0" step="0.01" value={form.monto} onChange={e => set('monto', e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
                 </div>
               </div>
               <div>
                 <label className="text-xs font-medium text-gray-600">Descripción</label>
                 <input value={form.descripcion} onChange={e => set('descripcion', e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
               </div>
               {editando && (
                 <label className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -132,7 +132,7 @@ export default function TabConceptos() {
             </div>
             <div className="flex gap-3 mt-5 justify-end">
               <button onClick={() => setModal(false)} className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50">Cancelar</button>
-              <button onClick={guardar} disabled={saving} className="px-4 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50">
+              <button onClick={guardar} disabled={saving} className="px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50">
                 {saving ? 'Guardando...' : 'Guardar'}
               </button>
             </div>

@@ -15,7 +15,7 @@ const canalIcon   = (c) => ({ email:'✉️', whatsapp:'💬', ambos:'📲' }[c]
 function TabBtn({ label, active, onClick }) {
   return (
     <button onClick={onClick}
-      className={`px-4 py-2 text-sm font-medium border-b-2 transition ${active ? 'border-indigo-600 text-indigo-700' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
+      className={`px-4 py-2 text-sm font-medium border-b-2 transition ${active ? 'border-blue-600 text-blue-700' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
       {label}
     </button>
   );
@@ -89,9 +89,9 @@ function TabEnviar() {
   };
 
   const PLANTILLAS = [
-    { label:'Recordatorio de pago', asunto:'Recordatorio de pago pendiente', mensaje: `Estimado padre/madre de familia,\n\nLe recordamos que tiene un pago pendiente en GOKIDS.\n\nPor favor acérquese a caja o comuníquese con nosotros para regularizar su situación.\n\nGracias por su atención.` },
-    { label:'Pago recibido',        asunto:'Confirmación de pago', mensaje: `Estimado padre/madre de familia,\n\nConfirmamos que hemos recibido su pago correctamente.\n\nGracias por mantenerse al corriente.\n\nAtentamente, GOKIDS.` },
-    { label:'Aviso general',        asunto:'Aviso importante — GOKIDS', mensaje: `Estimado padre/madre de familia,\n\n[Escriba su mensaje aquí]\n\nAtentamente,\nDirectiva GOKIDS` },
+    { label:'Recordatorio de pago', asunto:'Recordatorio de pago pendiente', mensaje: `Estimado padre/madre de familia,\n\nLe recordamos que tiene un pago pendiente en EDUCARE.\n\nPor favor acérquese a caja o comuníquese con nosotros para regularizar su situación.\n\nGracias por su atención.` },
+    { label:'Pago recibido',        asunto:'Confirmación de pago', mensaje: `Estimado padre/madre de familia,\n\nConfirmamos que hemos recibido su pago correctamente.\n\nGracias por mantenerse al corriente.\n\nAtentamente, EDUCARE.` },
+    { label:'Aviso general',        asunto:'Aviso importante — EDUCARE', mensaje: `Estimado padre/madre de familia,\n\n[Escriba su mensaje aquí]\n\nAtentamente,\nDirectiva EDUCARE` },
   ];
 
   return (
@@ -101,14 +101,14 @@ function TabEnviar() {
         <h3 className="text-sm font-semibold text-gray-700 mb-3">1. Seleccionar alumno</h3>
         <div className="relative">
           {alumnoSelec ? (
-            <div className="flex items-center gap-2 bg-indigo-50 border border-indigo-200 rounded-lg px-3 py-2">
-              <span className="text-sm font-medium text-indigo-800">{alumnoSelec.apellido_paterno} {alumnoSelec.nombre}</span>
-              <button onClick={() => { setAlumnoSelec(null); setTutores([]); setForm(f => ({...f, destinatario:'', telefono:''})); }} className="ml-auto text-xs text-indigo-500">✕</button>
+            <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-lg px-3 py-2">
+              <span className="text-sm font-medium text-blue-800">{alumnoSelec.apellido_paterno} {alumnoSelec.nombre}</span>
+              <button onClick={() => { setAlumnoSelec(null); setTutores([]); setForm(f => ({...f, destinatario:'', telefono:''})); }} className="ml-auto text-xs text-blue-500">✕</button>
             </div>
           ) : (
             <>
               <input value={busqueda} onChange={e => buscar(e.target.value)} placeholder="Buscar alumno..."
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
               {alumnos.length > 0 && (
                 <div className="absolute z-10 top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-1 max-h-44 overflow-y-auto">
                   {alumnos.map(a => (
@@ -130,7 +130,7 @@ function TabEnviar() {
                 <span className="font-medium capitalize">{t.parentesco}</span> — {t.nombre}
                 {t.email    && <span className="text-gray-400 text-xs">{t.email}</span>}
                 {t.telefono && <span className="text-gray-400 text-xs">📱{t.telefono}</span>}
-                {t.es_responsable && <span className="text-xs bg-indigo-100 text-indigo-700 px-1.5 rounded">Responsable</span>}
+                {t.es_responsable && <span className="text-xs bg-blue-100 text-blue-700 px-1.5 rounded">Responsable</span>}
               </label>
             ))}
           </div>
@@ -152,14 +152,14 @@ function TabEnviar() {
           <div>
             <label className="text-xs font-medium text-gray-600">Tipo</label>
             <select value={form.tipo} onChange={e => set('tipo', e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
               {TIPOS.map(t => <option key={t} value={t} className="capitalize">{t.replace('_',' ')}</option>)}
             </select>
           </div>
           <div>
             <label className="text-xs font-medium text-gray-600">Canal</label>
             <select value={form.canal} onChange={e => set('canal', e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
               {CANALES.map(c => <option key={c} value={c} className="capitalize">{c}</option>)}
             </select>
           </div>
@@ -169,7 +169,7 @@ function TabEnviar() {
             <label className="text-xs font-medium text-gray-600">Email destinatario</label>
             <input value={form.destinatario} onChange={e => set('destinatario', e.target.value)}
               placeholder="email@ejemplo.com"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
           </div>
         )}
         {(form.canal === 'whatsapp' || form.canal === 'ambos') && (
@@ -177,23 +177,23 @@ function TabEnviar() {
             <label className="text-xs font-medium text-gray-600">Teléfono WhatsApp</label>
             <input value={form.telefono} onChange={e => set('telefono', e.target.value)}
               placeholder="Ej. 4421234567"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
           </div>
         )}
         <div className="mb-3">
           <label className="text-xs font-medium text-gray-600">Asunto (email)</label>
           <input value={form.asunto} onChange={e => set('asunto', e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
         </div>
         <div>
           <label className="text-xs font-medium text-gray-600">Mensaje *</label>
           <textarea value={form.mensaje} onChange={e => set('mensaje', e.target.value)} rows={6}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-none" />
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none" />
         </div>
         {error && <p className="text-sm text-red-600 mt-2">{error}</p>}
         <div className="mt-4 flex gap-3 justify-end">
           <button onClick={enviar} disabled={saving}
-            className="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-50">
+            className="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 disabled:opacity-50">
             {saving ? 'Enviando...' : 'Enviar notificación'}
           </button>
         </div>
@@ -221,7 +221,7 @@ function TabEnviar() {
 /* ─── Tab Masivo ──────────────────────────────────────────── */
 function TabMasivo() {
   const [ciclos, setCiclos] = useState([]);
-  const [form, setForm] = useState({ tipo:'pago_vencido', asunto:'Recordatorio de pago pendiente', mensaje: 'Estimado padre de familia,\n\nLe recordamos que {nombre} {apellido} tiene uno o más pagos pendientes en GOKIDS.\n\nPor favor acérquese a la administración a regularizar su situación.\n\nGracias,\nAdministración GOKIDS', ciclo_id:'' });
+  const [form, setForm] = useState({ tipo:'pago_vencido', asunto:'Recordatorio de pago pendiente', mensaje: 'Estimado padre de familia,\n\nLe recordamos que {nombre} {apellido} tiene uno o más pagos pendientes en EDUCARE.\n\nPor favor acérquese a la administración a regularizar su situación.\n\nGracias,\nAdministración EDUCARE', ciclo_id:'' });
   const [saving,    setSaving]    = useState(false);
   const [resultado, setResultado] = useState(null);
   const [error,     setError]     = useState('');
@@ -249,7 +249,7 @@ function TabMasivo() {
           <div>
             <label className="text-xs font-medium text-gray-600">Ciclo escolar</label>
             <select value={form.ciclo_id} onChange={e => set('ciclo_id', e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
               <option value="">Todos los ciclos</option>
               {ciclos.map(c => <option key={c.id} value={c.id}>{c.nombre}{c.activo?' ✓':''}</option>)}
             </select>
@@ -257,7 +257,7 @@ function TabMasivo() {
           <div>
             <label className="text-xs font-medium text-gray-600">Tipo</label>
             <select value={form.tipo} onChange={e => set('tipo', e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
               {TIPOS.map(t => <option key={t} value={t} className="capitalize">{t.replace('_',' ')}</option>)}
             </select>
           </div>
@@ -265,17 +265,17 @@ function TabMasivo() {
         <div>
           <label className="text-xs font-medium text-gray-600">Asunto</label>
           <input value={form.asunto} onChange={e => set('asunto', e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" />
         </div>
         <div>
           <label className="text-xs font-medium text-gray-600">Mensaje</label>
           <textarea value={form.mensaje} onChange={e => set('mensaje', e.target.value)} rows={8}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-none font-mono text-xs" />
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none font-mono text-xs" />
         </div>
         {error && <p className="text-sm text-red-600">{error}</p>}
         <div className="flex justify-end">
           <button onClick={enviar} disabled={saving}
-            className="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-50">
+            className="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 disabled:opacity-50">
             {saving ? 'Enviando...' : 'Enviar a todos'}
           </button>
         </div>

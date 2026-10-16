@@ -44,7 +44,7 @@ export default function DashboardPage() {
   }, []);
 
   const tarjetas = [
-    { titulo:'Alumnos activos', valor: stats.alumnos,   icono:'🎒', color:'bg-indigo-50 border-indigo-100',  accion: () => navigate('/control-escolar/alumnos'), label:'Ver alumnos', roles: null },
+    { titulo:'Alumnos activos', valor: stats.alumnos,   icono:'🎒', color:'bg-blue-50 border-blue-100',  accion: () => navigate('/control-escolar/alumnos'), label:'Ver alumnos', roles: null },
     { titulo:'Grupos',          valor: stats.grupos,    icono:'📚', color:'bg-emerald-50 border-emerald-100', accion: () => navigate('/control-escolar/grupos'),  label:'Ver grupos',  roles: null },
     { titulo:'Ciclo activo',    valor: stats.ciclo,     icono:'📅', color:'bg-amber-50 border-amber-100',    small: true, roles: null },
     { titulo:'Cobranza hoy',    valor: stats.cobranza,  icono:'💳', color:'bg-green-50 border-green-100',    accion: () => navigate('/cobranza'),                label:'Ver cobranza', roles: ['directora','secretaria','contador'] },
@@ -69,7 +69,7 @@ export default function DashboardPage() {
             <div className="flex items-center justify-between">
               <span className="text-3xl">{t.icono}</span>
               {t.accion && (
-                <button onClick={t.accion} className="text-xs text-indigo-600 hover:underline font-medium">
+                <button onClick={t.accion} className="text-xs text-blue-600 hover:underline font-medium">
                   {t.label} →
                 </button>
               )}
